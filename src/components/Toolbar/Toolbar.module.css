@@ -1,0 +1,48 @@
+.Toolbar {
+    flex-grow: 1;
+    padding: 0 10px;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+.Option {
+    text-decoration: none;
+    outline: none;
+    color: #aaaaaa;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+.Option--selected {
+    font-weight: 700;
+    color: white;
+}
+.Action {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-transform: capitalize;
+    margin-left: auto;
+}
+.Action__item {
+    height: 100%;
+    cursor: pointer;
+    padding: 0 10px;
+    background-color: rgb(75, 101, 186);
+    font-weight: 600;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Action__item + .Action__item {
+    margin-left: 10px;
+}
+
+.Toolbar > .Option:not(:last-child) {
+    margin-right: 20px;
+}

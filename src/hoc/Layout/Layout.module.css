@@ -1,0 +1,43 @@
+.Layout {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    max-width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 6% auto 6%;
+    font-family: 'Open Sans', sans-serif;
+}
+.Header, .Footer {
+    position: relative;
+    padding: 0 30px;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1em;
+    background: #100e17;
+    border-bottom: 1px solid #201c29;
+    color: white;
+}
+.Header__title {
+    flex-basis: 20%;
+    font-weight: bold;
+}
+/* .Header__controls {
+    height: 100%;
+    flex-basis: 15%;
+    font-size: 0.80em;
+}
+.Header__controls > button {
+    background-color: rgb(82, 188, 105);
+    height: 100%;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+} */
