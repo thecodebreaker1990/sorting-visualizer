@@ -1,9 +1,10 @@
 .GridContainer {
+    position: relative;
     margin: 0px auto;
     width: 70%;
     height: 50vh;
-    display: flex;
+    /* display: flex;
     flex-flow: row;
     justify-content: flex-start;
-    align-items: flex-end;
+    align-items: flex-end; */
 }

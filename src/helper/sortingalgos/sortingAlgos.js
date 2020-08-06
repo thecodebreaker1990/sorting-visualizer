@@ -15,14 +15,14 @@ function bubbleSort(arr) {
   while(!sorted) {
     sorted = true;
     for(let j = 0; j < arr.length - 1 - round; j++) {
-      steps.push({ type: 'comparison', element: [j, j+1] });
+      steps.push({ type: 'comparison', element: [arr[j], arr[j+1]] });
       if(arr[j] > arr[j+1]) {
-        steps.push({ type: 'swap', element: [j, j+1] });
+        steps.push({ type: 'swap', element: [arr[j], arr[j+1]] });
         swap(arr, j, j+1);
         sorted = false;
       }
     }
-    steps.push({ type: 'sorted', element: arr.length - 1 - round });
+    steps.push({ type: 'sorted', element: arr[arr.length - 1 - round] });
     round++;
   }
   return steps;
@@ -33,20 +33,20 @@ function selectionSort(arr) {
   let steps = [];
   for(let i = 0; i < arr.length - 1; i++) {
     let pos = i;
-    steps.push({ type: 'set_minimum', element: [i] });
+    steps.push({ type: 'set_minimum', element: [arr[i]] });
     for(let j = i + 1; j < arr.length; j++) {
-      steps.push({ type: 'comparison', element: [j] });
+      steps.push({ type: 'comparison', element: [arr[j]] });
       if(arr[j] < arr[pos]) {
-        steps.push({ type: 'set_minimum', element: [j] });
+        steps.push({ type: 'set_minimum', element: [arr[j]] });
         pos = j;
       }
     }
     if(i !== pos) {
-      steps.push({ type: 'set_minimum', element: [i, pos] });
-      steps.push({ type: 'swap', element: [i, pos] });
+      steps.push({ type: 'set_minimum', element: [arr[i], arr[pos]] });
+      steps.push({ type: 'swap', element: [arr[i], arr[pos]] });
       swap(arr, i, pos);
     }
-    steps.push({ type: 'sorted', element: i });
+    steps.push({ type: 'sorted', element: arr[i] });
   }
   return steps;
 }
