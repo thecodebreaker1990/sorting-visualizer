@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Layout from '../../hoc/Layout/Layout';
 import GridContainer from '../../components/GridContainer/GridContainer';
 import Toolbar from '../../components/Toolbar/Toolbar';
+import RangeSlider from '../../components/UI/RangeSlider/RangeSlider';
 
 import { randomIntFromInterval, generateStyleObjMap } from '../../helper/utility';
 import { bubbleSort, selectionSort } from '../../helper/sortingalgos/sortingAlgos';
@@ -12,6 +13,7 @@ class SortingVisualizer extends Component {
 
     constructor(props) {
         super(props);
+        this.timerId = null;
         this.state = {
             array: [],
             sortingOptions: [
@@ -22,7 +24,8 @@ class SortingVisualizer extends Component {
             styleMap: {},
             currentSwappers: [],
             currentSorted: [],
-            currentSelectTwo: []
+            currentSelectTwo: [],
+            speed: 100
         };
     }
 
@@ -58,7 +61,7 @@ class SortingVisualizer extends Component {
                 break;
             default:
         }
-        this.handleAnimation(animationSteps, 400);
+        this.handleAnimation(animationSteps, 100);
     }
     handleAnimation(animationSteps, speed) {
        if(!animationSteps.length) {
@@ -97,10 +100,10 @@ class SortingVisualizer extends Component {
             default:
        }
        animationSteps.shift();
-       setTimeout(() => this.handleAnimation(animationSteps, speed), speed); 
+       this.timerId = setTimeout(() => this.handleAnimation(animationSteps, speed), speed); 
     }
     render() {
-        const { array, styleMap } = this.state;
+        const { array, styleMap, speed } = this.state;
         const toolbar = <Toolbar 
                             randomize={this.resetArray.bind(this)}
                             sort={this.applySort.bind(this)}
@@ -116,6 +119,12 @@ class SortingVisualizer extends Component {
                         currentSwappers={this.state.currentSwappers}
                         currentSorted={this.state.currentSorted}
                         currentSelectTwo={this.state.currentSelectTwo}
+                    />
+                    <RangeSlider 
+                        min="50" 
+                        max="1000" 
+                        value={speed} 
+                        onInput={(value) => this.setState({ speed: value })} 
                     />
                 </div>
         </Layout>
