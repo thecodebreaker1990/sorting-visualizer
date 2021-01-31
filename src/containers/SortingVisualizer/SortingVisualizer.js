@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Layout from '../../hoc/Layout/Layout';
 import GridContainer from '../../components/GridContainer/GridContainer';
 import Toolbar from '../../components/Toolbar/Toolbar';
+import Sidebar from '../../UI/Sidebar/Sidebar';
 import RangeSlider from '../../components/UI/RangeSlider/RangeSlider';
 
 import { randomIntFromInterval, generateStyleObjMap } from '../../helper/utility';
@@ -111,7 +112,8 @@ class SortingVisualizer extends Component {
                             selectedSort={this.state.selectedSortingMethod}
                             selectSort={this.handleSortingSelection.bind(this)}
                         />;
-        return <Layout toolbar={ toolbar }>
+        const sidebar = <Sidebar />
+        return <Layout toolbar={ toolbar } sidebar={ sidebar }>
                 <div className={classes.Visualizer}>
                     <GridContainer 
                         list={array}
