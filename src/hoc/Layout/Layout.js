@@ -7,6 +7,9 @@ const layout = props => {
             <div className={classes.Header__title}>VisualSort</div>
             { props.toolbar }
         </header>
+        <aside className={classes.Sidebar}>
+            { props.sidebar }
+        </aside>
         <main>
             { props.children }
         </main>
