@@ -3,7 +3,7 @@ import Layout from '../../hoc/Layout/Layout';
 import GridContainer from '../../components/GridContainer/GridContainer';
 import Toolbar from '../../components/Toolbar/Toolbar';
 import Sidebar from '../../UI/Sidebar/Sidebar';
-import RangeSlider from '../../components/UI/RangeSlider/RangeSlider';
+// import RangeSlider from '../../components/UI/RangeSlider/RangeSlider';
 
 import { randomIntFromInterval, generateStyleObjMap } from '../../helper/utility';
 import { bubbleSort, selectionSort } from '../../helper/sortingalgos/sortingAlgos';
@@ -62,7 +62,7 @@ class SortingVisualizer extends Component {
                 break;
             default:
         }
-        this.handleAnimation(animationSteps, 100);
+        this.handleAnimation(animationSteps, 500);
     }
     handleAnimation(animationSteps, speed) {
        if(!animationSteps.length) {
@@ -122,12 +122,12 @@ class SortingVisualizer extends Component {
                         currentSorted={this.state.currentSorted}
                         currentSelectTwo={this.state.currentSelectTwo}
                     />
-                    <RangeSlider 
+                    {/* <RangeSlider 
                         min="50" 
                         max="1000" 
                         value={speed} 
                         onInput={(value) => this.setState({ speed: value })} 
-                    />
+                    /> */}
                 </div>
         </Layout>
     }
