@@ -1,0 +1,19 @@
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.icon {
+    color: white;
+}
+.icon--md {
+    width: 3rem;
+    height: 3rem;
+}
+.icon--lg {
+    width: 4rem;
+    height: 4rem;
+}

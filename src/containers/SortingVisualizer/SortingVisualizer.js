@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Layout from '../../hoc/Layout/Layout';
 import GridContainer from '../../components/GridContainer/GridContainer';
 import Toolbar from '../../components/Toolbar/Toolbar';
-import Sidebar from '../../UI/Sidebar/Sidebar';
+import Sidebar from '../../components/Sidebar/Sidebar';
 // import RangeSlider from '../../components/UI/RangeSlider/RangeSlider';
 
 import { randomIntFromInterval, generateStyleObjMap } from '../../helper/utility';
@@ -26,7 +26,8 @@ class SortingVisualizer extends Component {
             currentSwappers: [],
             currentSorted: [],
             currentSelectTwo: [],
-            speed: 100
+            speed: 100,
+            showMenuOptions: false
         };
     }
 
@@ -103,6 +104,11 @@ class SortingVisualizer extends Component {
        animationSteps.shift();
        this.timerId = setTimeout(() => this.handleAnimation(animationSteps, speed), speed); 
     }
+    toggleMenuOptions() {
+        this.setState((state) => ({
+            showMenuOptions: !state.showMenuOptions
+        }));
+    }
     render() {
         const { array, styleMap, speed } = this.state;
         const toolbar = <Toolbar 
@@ -112,7 +118,10 @@ class SortingVisualizer extends Component {
                             selectedSort={this.state.selectedSortingMethod}
                             selectSort={this.handleSortingSelection.bind(this)}
                         />;
-        const sidebar = <Sidebar />
+        const sidebar = <Sidebar 
+                            show={this.state.showMenuOptions} 
+                            toggled={this.toggleMenuOptions.bind(this)} 
+                        />;
         return <Layout toolbar={ toolbar } sidebar={ sidebar }>
                 <div className={classes.Visualizer}>
                     <GridContainer 
