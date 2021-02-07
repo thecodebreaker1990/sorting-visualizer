@@ -17,10 +17,23 @@ const ACTIONS = [
 
 const sidebar = (props) => {
     let iconClasses = ["icon", "icon--lg"];
-    if(props.show) {
-        iconClasses.push("rotate-180");
-    }
+    if(props.show) iconClasses.push("rotate-180");
     iconClasses = iconClasses.join(" ");
+
+    const handleActionClick = (actionItem) => {
+        switch (actionItem) {
+            case 'sort':
+                props.sort();
+                props.toggled();
+                break;
+            case 'create':
+                props.randomize();
+                break;
+            default:
+                break;
+        }
+    };
+
     return <div className={classes.SidebarControl}>
         <div 
             className={classes.SidebarControl__el}
@@ -33,7 +46,7 @@ const sidebar = (props) => {
             bottom: "6rem",
             left: "5.5rem"
         }}>
-            <Actions visible={props.show} items={ACTIONS} />
+            <Actions visible={props.show} items={ACTIONS} clicked={handleActionClick} />
         </div>
     </div>;
 }

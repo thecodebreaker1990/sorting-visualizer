@@ -110,17 +110,17 @@ class SortingVisualizer extends Component {
         }));
     }
     render() {
-        const { array, styleMap, speed } = this.state;
+        const { array, styleMap } = this.state;
         const toolbar = <Toolbar 
-                            randomize={this.resetArray.bind(this)}
-                            sort={this.applySort.bind(this)}
                             sortOptions={this.state.sortingOptions}
                             selectedSort={this.state.selectedSortingMethod}
                             selectSort={this.handleSortingSelection.bind(this)}
                         />;
         const sidebar = <Sidebar 
                             show={this.state.showMenuOptions} 
-                            toggled={this.toggleMenuOptions.bind(this)} 
+                            toggled={this.toggleMenuOptions.bind(this)}
+                            randomize={this.resetArray.bind(this)}
+                            sort={this.applySort.bind(this)} 
                         />;
         return <Layout toolbar={ toolbar } sidebar={ sidebar }>
                 <div className={classes.Visualizer}>
