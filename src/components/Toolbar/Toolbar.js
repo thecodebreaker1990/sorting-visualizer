@@ -15,10 +15,10 @@ class Toolbar extends Component {
         });
         return <div className={classes.Toolbar}>
             { sortControls }
-            <div className={classes.Action}>
+            {/* <div className={classes.Action}>
                 <div className={classes.Action__item} onClick={this.props.randomize}>Generate New Array</div>
                 <div className={classes.Action__item} onClick={this.props.sort}>Sort!</div>
-            </div>
+            </div> */}
         </div>;
     }
 }
