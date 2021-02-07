@@ -1,0 +1,25 @@
+.Actions {
+    height: 7rem;
+    width: 0;
+    background-color: var(--menu-color);
+    color: var(--white-color);
+    transition: width 0.5s;
+    display: flex;
+    flex-direction: column;
+}
+.Actions--visible {
+    width: 15rem;
+}
+.Actions__item {
+    flex: 1 0;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: inherit;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.Actions__item:hover {
+    background-color: var(--black-color);
+}

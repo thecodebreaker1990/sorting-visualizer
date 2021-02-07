@@ -21,3 +21,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --menu-color: rgb(255, 138, 39);
+  --white-color: #ffffff;
+  --black-color: #000000;
+}
